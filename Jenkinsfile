@@ -26,7 +26,7 @@ pipeline {
             terraform plan -out=tfplan
 
             # Uncomment below to apply changes automatically
-              terraform apply -auto-approve tfplan
+              terraform destroy -auto-approve tfplan
           '''
         }
       }
