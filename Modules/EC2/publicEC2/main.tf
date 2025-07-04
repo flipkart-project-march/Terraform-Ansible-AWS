@@ -17,15 +17,15 @@ resource "aws_instance" "public_ec2" {
 
 
 # COPY PEM FILE TO THE TOMCAT EC2 ONLY 
-resource "null_resource" "copy_pem_to_tomcat" {
+resource "null_resource" "frontend" {
   depends_on = [aws_instance.public_ec2]
 
   triggers = {
-    tomcat_instance_id = aws_instance.public_ec2["tomcat"].id
+    frontend_instance_id = aws_instance.public_ec2["frontend"].id
   }
 
   connection {
-    host        = aws_instance.public_ec2["tomcat"].public_ip
+    host        = aws_instance.public_ec2["frontend"].public_ip
     user        = "ubuntu"
 
     
