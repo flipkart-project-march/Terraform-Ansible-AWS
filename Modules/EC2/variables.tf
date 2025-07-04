@@ -11,19 +11,11 @@ variable "public_instances" {
     instance_type = string
   }))
   default = {
-    "tomcat" = {
+    "frontend" = {
       ami           = "ami-020cba7c55df1f615"
-      instance_type = "t2.micro"
-    },
-    "nexus" = {
-      ami           = "ami-020cba7c55df1f615"
-      instance_type = "t2.micro"
-    },
-    "sonarqube" = {
-      ami           = "ami-020cba7c55df1f615"
-      instance_type = "t2.medium"
+      instance_type = "t2.large"
     }
-  }
+}
 }
 
 variable "public_subnet_id" {
